@@ -5,4 +5,4 @@ export declare class Cat {
     age: number;
     breed: string;
 }
-export declare const CatSchema: any;
+export declare const CatSchema: Document.Schema<Cat, Document.Model<Cat, any, any, any, any>, {}, {}, any, {}, "type", Cat>;

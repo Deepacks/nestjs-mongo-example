@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CatsService = void 0;
 const mongoose_1 = require("mongoose");
@@ -33,7 +32,7 @@ let CatsService = class CatsService {
 CatsService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_2.InjectModel)(cat_schema_1.Cat.name)),
-    __metadata("design:paramtypes", [typeof (_a = typeof mongoose_1.Model !== "undefined" && mongoose_1.Model) === "function" ? _a : Object])
+    __metadata("design:paramtypes", [mongoose_1.Model])
 ], CatsService);
 exports.CatsService = CatsService;
 //# sourceMappingURL=cats.service.js.map

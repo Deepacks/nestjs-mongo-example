@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
+const config_1 = require("@nestjs/config");
 const cats_module_1 = require("./cats/cats.module");
 const logger_middleware_1 = require("./middlewares/logger.middleware");
 let AppModule = class AppModule {
@@ -19,12 +20,16 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            cats_module_1.CatsModule,
+            config_1.ConfigModule.forRoot({
+                isGlobal: true,
+                envFilePath: `${process.env.NODE_ENV}.env`,
+            }),
             mongoose_1.MongooseModule.forRoot('mongodb://localhost:27017/streakcloud-p', {
                 authSource: 'streakcloud-p',
-                user: 'scp_user',
-                pass: '072901',
+                user: process.env.MONGO_USER,
+                pass: process.env.MONGO_PASS,
             }),
+            cats_module_1.CatsModule,
         ],
     })
 ], AppModule);
